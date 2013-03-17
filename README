@@ -73,3 +73,18 @@ import TelnetTorCtl as chtor
 chtor.changeiptelnet(host,port,passphrase)
 
 done. this makes it take a new IP.
+
+#----------------------------------------
+# DateFetch.py
+#----------------------------------------
+#
+#Usage : 
+#
+import DateFetch as df
+# Or if you use the whole module
+# from SVModules import DateFetch as df
+#
+	fetch()
+
+returns todays date in Eastern time.
+from "http://nist.time.gov/timezone.cgi?Eastern/d/-5"
