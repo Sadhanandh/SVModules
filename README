@@ -1,0 +1,75 @@
+All the modules that i frequently use.
+If you find any of the modules interesting and useful please send me a request to migrate the module into a separate project.
+
+
+#----------------------------------------
+# ImagePrint.py
+#----------------------------------------
+
+ImagePrint -> Print images in Windows. 
+Requires :  winprint and PIL
+Usage : 
+
+import ImagePrint as printer
+# Or if you use the whole module
+# from SVModules import ImagePrint as printer
+
+printer.printImage(filename[,res_ = 100] )
+#leaves behind a temp file "x.pdf" as windows spooler never saves the pdf in the memory.It just refernces the location.Incase the function deletes this file before the job is exected then it raises an error.
+
+#----------------------------------------
+# SimConfig.py
+#----------------------------------------
+
+SimConfig -> read and write config.ini. Dictionary based port.
+Usage: 
+
+import SimConfig as conf 
+# Or if you use the whole module
+# from SVModules import SimConfig as conf
+
+#read config.
+data = conf.readlist(filename)
+
+if "Tag Name".lower().remove(" ") in data:
+	print data["tagname"]
+
+#write config
+data["newtag"]=3.0
+del(data["tagname"])
+
+conf.writelist(filename,data)
+
+
+Note:
+
+  Camelcase or tag words with spaces are automatically read as lower case.
+
+  they are capitalised and spaces removed while updating or writing.
+
+  	eg.
+				Tag Name : "Hello World"
+  			This is read as data["tagname"]
+  			
+  			On writing this becomes
+  				Tagname : "Hello World"
+
+	Helps in correcting user configuration changes
+
+#----------------------------------------
+# TelnetTorCtl.py
+#----------------------------------------
+
+#TelnotTorCtl -> an replacement for TorCtl module 
+# this is purely based on telnetlib
+
+Requires : telnetlib
+Usage: 
+
+import TelnetTorCtl as chtor
+# Or if you use the whole module
+# from SVModules import TelnetTorCtl as chtor
+
+chtor.changeiptelnet(host,port,passphrase)
+
+done. this makes it take a new IP.
